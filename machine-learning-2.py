@@ -16,7 +16,8 @@ for header in headernames:
     print("------------------------------------------------------------------")
 print("**********************************************************************")
 
-print("************************* Type of features ***************************")
-print(data.dtypes)
+print("******************* Correlation between features *********************")
+correlations = data.corr(method='pearson')
+print(correlations)
 print("**********************************************************************")
 
