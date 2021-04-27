@@ -1,4 +1,7 @@
+from matplotlib import pyplot
 from pandas import read_csv
+import seaborn as sns
+
 path = r"breast-cancer.data"
 headernames = ['Class','age','menopause','tumor-size','inv-nodes','node-caps','deg-malig','breast','breast-quad','irradiat']
 data = read_csv(path, names=headernames)
@@ -19,5 +22,10 @@ print("**********************************************************************")
 print("******************* Correlation between features *********************")
 correlations = data.corr(method='pearson')
 print(correlations)
+print("**********************************************************************")
+
+print("***************************** Density ********************************")
+data.plot(kind='density', subplots=True, layout=(3,3), sharex=False)
+pyplot.show()
 print("**********************************************************************")
 
