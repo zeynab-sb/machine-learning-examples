@@ -1,6 +1,7 @@
 from matplotlib import pyplot
 from pandas import read_csv
 import seaborn as sns
+from pandas.plotting import scatter_matrix
 
 path = r"breast-cancer.data"
 headernames = ['Class','age','menopause','tumor-size','inv-nodes','node-caps','deg-malig','breast','breast-quad','irradiat']
@@ -33,3 +34,7 @@ data.plot(kind='density', subplots=True, layout=(3,3), sharex=False)
 pyplot.show()
 print("**********************************************************************")
 
+print("***************************** Scatter ********************************")
+scatter_matrix(data)
+pyplot.show()
+print("**********************************************************************")
