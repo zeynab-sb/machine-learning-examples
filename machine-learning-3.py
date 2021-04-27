@@ -49,3 +49,7 @@ print("****************** Prediction ******************")
 print(y_pred)
 print("************************************************")
 
+print("*************** Confusion Matrix ***************")
+result = confusion_matrix(y_test, y_pred)
+print(result)
+print("************************************************")
