@@ -35,37 +35,6 @@ def convert(data):
 new_data = convert(data)
 
 #DecisionTreeClassifier all features
-X = new_data.drop(['Class','age','menopause','tumor-size','inv-nodes','node-caps'], axis=1)
-y = new_data['Class']
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
-
-classifier = DecisionTreeClassifier()
-classifier.fit(X_train, y_train)
-
-#prediction
-y_pred = classifier.predict(X_test)
-print("****************** Prediction ******************")
-print(y_pred)
-print("************************************************")
-
-print("*************** Confusion Matrix ***************")
-result = confusion_matrix(y_test, y_pred)
-print(result)
-print("************************************************")
-
-print("************* Report **************")
-result1 = classification_report(y_test, y_pred)
-print (result1)
-result2 = accuracy_score(y_test,y_pred)
-print("Accuracy: ",result2)
-print("************************************")
-
-
-
-
-
-#DecisionTreeClassifier 5 features
 X = new_data.drop('Class', axis=1)
 y = new_data['Class']
 
@@ -85,11 +54,42 @@ result = confusion_matrix(y_test, y_pred)
 print(result)
 print("************************************************")
 
-print("************* Report **************")
+print("******************* Report *********************")
 result1 = classification_report(y_test, y_pred)
 print (result1)
 result2 = accuracy_score(y_test,y_pred)
 print("Accuracy: ",result2)
-print("************************************")
+print("************************************************")
+
+
+
+
+
+#DecisionTreeClassifier 5 features
+X = new_data.drop(['Class','age','menopause','tumor-size','inv-nodes','node-caps'], axis=1)
+y = new_data['Class']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+classifier = DecisionTreeClassifier()
+classifier.fit(X_train, y_train)
+
+#prediction
+y_pred = classifier.predict(X_test)
+print("****************** Prediction ******************")
+print(y_pred)
+print("************************************************")
+
+print("*************** Confusion Matrix ***************")
+result = confusion_matrix(y_test, y_pred)
+print(result)
+print("************************************************")
+
+print("******************* Report *********************")
+result1 = classification_report(y_test, y_pred)
+print (result1)
+result2 = accuracy_score(y_test,y_pred)
+print("Accuracy: ",result2)
+print("************************************************")
 
 
